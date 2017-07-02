@@ -31,3 +31,15 @@ module.exports.fetchAllContact = (req, res, next) => {
 			res.status(200).json(data);
 		})
 }
+
+module.exports.getContact = (req, res, next) => {
+
+		if(!req.contact) { return next (new Error("Failed to get contact by ID")); }
+
+		res.status(200).json(req.contact);
+}
+
+module.exports.removeContact = (req, res, next) => {
+
+		contactModel.remove({ _id: req.contact})
+}
