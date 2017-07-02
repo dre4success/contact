@@ -2,7 +2,7 @@ const express     = require('express'),
 	  bps         = require('body-parser'),
 	  app 		  = express(),
 	  api         = require('../api/api'),
-	  morgan 	  = reqire('morgan'),
+	  morgan 	  = require('morgan'),
 	  cors        = require('cors');
 
 

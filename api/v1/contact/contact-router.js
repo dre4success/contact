@@ -3,7 +3,7 @@ const express  		= require('express'),
 	  controller    = require('./contact-controller');
 
 
-	  router.param("id", controller.interceptIDs);
+	  router.param("id", controller.intercerptIDs);
 
 	  router.route('/')
 	  	.get(controller.fetchAllContact)
