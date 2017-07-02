@@ -10,3 +10,15 @@ module.exports.intercerptIDs = (req, res, next, id) => {
 		next();
 	}, (err) => { return next(err); })
 }
+
+module.exports.addContact = (req, res, next) => {
+
+		let info = req.body;
+
+		let contact = new contactModel(info);
+		contact.save((err, data) => {
+			if(err) {return next(new Error ("Failed to add contact")); }
+
+			res.status(200).json(data);
+		})
+}
