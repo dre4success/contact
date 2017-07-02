@@ -22,3 +22,12 @@ module.exports.addContact = (req, res, next) => {
 			res.status(200).json(data);
 		})
 }
+
+module.exports.fetchAllContact = (req, res, next) => {
+
+		contactModel.find((err, data) => {
+			if(err) { return next(new Error("Failed to fetch contacts")); }
+
+			res.status(200).json(data);
+		})
+}
