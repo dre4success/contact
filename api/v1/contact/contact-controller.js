@@ -41,10 +41,20 @@ module.exports.getContact = (req, res, next) => {
 
 module.exports.removeContact = (req, res, next) => {
 
-		contactModel.remove({ _id: req.contact}, (err, res) => {
+		contactModel.remove({ _id: req.contact._id}, (err, res) => {
 
 			if(err) { return next (new Error("Failed to delete contact")); }
 		})
 
+		res.status(200).json(req.contact);
+}
+
+module.exports.updateContact = (req, res, next) => {
+
+		contactModel.update({_id: req.contact._id}, req.body, (err, res) => {
+
+			if(err) { return next(new Error("Failed to update contact")); }
+		})
+		
 		res.status(200).json(req.contact);
 }
